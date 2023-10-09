@@ -44,3 +44,4 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
 //   ->name('io_generator_builder_rollback');
 //Route::post('generator_builder/generate-from-file','\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generateFromFile')
 //   ->name('io_generator_builder_generate_from_file');
+

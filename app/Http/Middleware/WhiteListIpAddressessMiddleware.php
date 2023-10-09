@@ -10,6 +10,12 @@ class WhiteListIpAddressessMiddleware
     public $whitelistIps = [
         '127.0.0.1'
     ];
+
+    public $cloudflareIps = [
+    '104.21.15.123/22',
+    '172.67.162.154/22'
+    ];
+
     /**
      * Handle an incoming request.
      *
@@ -19,10 +25,31 @@ class WhiteListIpAddressessMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!in_array($request->getClientIp(), $this->whitelistIps)) {
-            abort(403, "You are restricted to access the site.");
+        if (in_array($request->getClientIp(), $this->whitelistIps) || $this->ip_in_range($request->getClientIp())) {
+            return $next($request);
         }
 
-        return $next($request);
+        abort(403, "You are restricted to access the site.");
+
+
+    }
+
+    public function ip_in_range($ip){
+        foreach ($this->cloudflareIps as $ipRange) {
+            list($subnet, $mask) = explode('/', $ipRange);
+            $subnet = ip2long($subnet);
+            $ip = ip2long($ip);
+            $mask = -1 << (32 - $mask);
+            $subnet &= $mask;
+
+            if (($ip & $mask) == $subnet) {
+                $status = true;
+                break;
+            }
+
+            $status = false;
+        }
+
+        return $status;
     }
 }
