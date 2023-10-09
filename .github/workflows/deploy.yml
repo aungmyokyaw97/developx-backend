@@ -1,0 +1,28 @@
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+  
+    permissions:
+      contents: none
+    
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www/html/developx-backend
+            git pull origin main
+            php artisan op:cl
