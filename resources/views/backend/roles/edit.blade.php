@@ -33,7 +33,11 @@
                             @foreach ($permissions as $key=>$name)
                                 <div class="row form-group col-sm-12">
                                     @if(in_array($name, $selected))
-                                        <input type="checkbox" checked name="permissions[]" value="{!! $name !!}" id="{{ $key }}" class="form-check"/>
+                                        @if($role->name == 'root-admin')
+                                            <input type="checkbox" checked disabled name="permissions[]" value="{!! $name !!}" id="{{ $key }}" class="form-check"/>
+                                        @else
+                                            <input type="checkbox" checked name="permissions[]" value="{!! $name !!}" id="{{ $key }}" class="form-check"/>
+                                        @endif
                                     @else
                                         <input type="checkbox" name="permissions[]" value="{!! $name !!}" id="{{ $key }}" class="form-check"/>
                                     @endif
