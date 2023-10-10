@@ -13,7 +13,7 @@ class WhiteListIpAddressessMiddleware
         '104.28.251.152'
     ];
 
-    
+
     public $cloudflareIps = [
     '104.21.15.123/22',
     '172.67.162.154/22'
