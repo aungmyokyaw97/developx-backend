@@ -22,10 +22,13 @@
                     @endforeach
                 </td>
                 <td>
+
                     {!! Form::open(['route' => ['roles.destroy', $role->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
                         <a href="{{ route('roles.edit', [$role->id]) }}" class='btn btn-default btn-xs'><i class="fa fa-edit"></i></a>
+                        @if($role->name != 'root-admin')
                         {!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        @endif
                     </div>
                     {!! Form::close() !!}
                 </td>

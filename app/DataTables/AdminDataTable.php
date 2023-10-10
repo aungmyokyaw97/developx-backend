@@ -24,7 +24,7 @@ class AdminDataTable extends DataTable
 
     public function query(Admin $model)
     {
-        return $model->newQuery();
+        return $model->where('id','!=',auth()->user()->id)->newQuery();
     }
 
     public function html()
