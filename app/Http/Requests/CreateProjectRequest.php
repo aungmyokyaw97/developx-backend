@@ -28,9 +28,9 @@ class CreateProjectRequest extends FormRequest
             'title' => 'required',
             'sub_title' => 'required',
             'description' => 'required',
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg|max:20000',
-            'app_image.*' => 'nullable|image|max:20000',
-            'web_image.*' => 'nullable|image|max:20000',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg|max:40000',
+            'app_image.*' => 'nullable|image|max:40000',
+            'web_image.*' => 'nullable|image|max:40000',
         ];
     }
 }
