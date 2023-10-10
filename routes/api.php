@@ -21,14 +21,14 @@ use Illuminate\Support\Facades\Route;
 
 
 
-    Route::get('test',function (Request $request){
-       \Log::info($request->getClientIp());
-    });
+Route::get('test',function (Request $request){
+    \Log::info($request->getClientIp());
+});
 
-Route::group(['middleware' => 'ip-whitelists'], function (){
+//Route::group(['middleware' => 'ip-whitelists'], function (){
     Route::get('projects/all','API\ProjectController@index');
     Route::post('projects/detail','API\ProjectController@detail');
     Route::get('jobs/all','API\JobController@index');
     Route::post('jobs/detail','API\JobController@detail');
-});
+//});
 
