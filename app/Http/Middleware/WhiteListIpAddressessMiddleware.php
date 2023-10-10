@@ -9,7 +9,8 @@ class WhiteListIpAddressessMiddleware
 {
     public $whitelistIps = [
         '127.0.0.1',
-        '54.86.50.139'
+        '54.86.50.139',
+        '104.28.251.152'
     ];
 
     public $cloudflareIps = [
