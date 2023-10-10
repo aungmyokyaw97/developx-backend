@@ -29,7 +29,7 @@ class UpdateProjectRequest extends FormRequest
             'title' => 'required',
             'sub_title' => 'required',
             'description' => 'required',
-            'thumbnail' => 'required|image|max:40000',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg|max:40000',
             'app_image.*' => 'nullable|image|max:40000',
             'web_image.*' => 'nullable|image|max:40000',
         ];
