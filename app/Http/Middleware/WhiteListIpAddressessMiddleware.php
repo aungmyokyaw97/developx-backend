@@ -28,7 +28,7 @@ class WhiteListIpAddressessMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (in_array($request->getClientIp(), $this->whitelistIps) || $this->ip_in_range($request->getClientIp())) {
+        if (in_array($request->getClientIp(), $this->whitelistIps) || $this->ip_in_range($request->ip())) {
             return $next($request);
         }
 
