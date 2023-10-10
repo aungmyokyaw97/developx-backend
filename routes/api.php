@@ -25,10 +25,10 @@ use Illuminate\Support\Facades\Route;
        \Log::info($request->getClientIp());
     });
 
-Route::group(['middleware' => 'ip-whitelists'], function (){
+//Route::group(['middleware' => 'ip-whitelists'], function (){
     Route::get('projects/all','API\ProjectController@index');
     Route::post('projects/detail','API\ProjectController@detail');
     Route::get('jobs/all','API\JobController@index');
     Route::post('jobs/detail','API\JobController@detail');
-});
+//});
 
