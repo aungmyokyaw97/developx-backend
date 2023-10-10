@@ -23,7 +23,7 @@ class JobController extends Controller
             'id' => 'required'
         ]);
         $id = Hashids::decode($request->id);
-        $job = Job::findOrFail((int)$id);
+        $job = Job::findOrFail($id[0]);
         return new JobResource($job);
     }
 

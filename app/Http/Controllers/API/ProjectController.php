@@ -23,7 +23,7 @@ class ProjectController extends Controller
             'id' => 'required'
         ]);
         $id = Hashids::decode($request->id);
-        $project = Project::findOrFail((int)$id);
+        $project = Project::findOrFail($id[0]);
         return new ProjectListResource($project);
     }
 
