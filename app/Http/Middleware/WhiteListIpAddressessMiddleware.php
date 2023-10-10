@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class WhiteListIpAddressessMiddleware
 {
     public $whitelistIps = [
-        '127.0.0.1'
+        '127.0.0.1',
+        '54.86.50.139'
     ];
 
     public $cloudflareIps = [
