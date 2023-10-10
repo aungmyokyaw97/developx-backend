@@ -25,7 +25,7 @@
 <!-- Thumbnail Field -->
 <div class="col-sm-12">
     {!! Form::label('thumbnail', 'Thumbnail:') !!}<br>
-    <img src="{{ asset('images/thumbnail/'. $project->thumbnail) }}" height="100px" alt="">
+    <img src="{{ asset('storage/images/thumbnail/'. $project->thumbnail) }}" height="100px" alt="">
 </div>
 
 @if($project->app_image != null)
@@ -33,7 +33,7 @@
 <div class="col-sm-12"><br>
     {!! Form::label('app_image', 'App Image:') !!} <br>
     @foreach(json_decode($project->app_image) as $app_image)
-        <img src="{{ asset('images/app/'. $app_image) }}" height="100px" alt="">
+        <img src="{{ asset('storage/images/app/'. $app_image) }}" height="100px" alt="">
     @endforeach
 </div>
 @endif
@@ -43,7 +43,7 @@
 <div class="col-sm-12"><br>
     {!! Form::label('web_image', 'Web Image:') !!}
     @foreach(json_decode($project->web_image) as $web_image)
-        <img src="{{ asset('images/web/'. $web_image) }}" height="100px" alt="">
+        <img src="{{ asset('storage/images/web/'. $web_image) }}" height="100px" alt="">
     @endforeach
 </div>
 @endif

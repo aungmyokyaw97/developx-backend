@@ -20,11 +20,11 @@ class ProjectListResource extends JsonResource
             'title' => $this->title,
             'sub_title' => $this->sub_title,
             'description' => $this->description,
-            'thumbnail' => url()->to('/').'/images/thumbnail/'.$this->thumbnail,
+            'thumbnail' => url()->to('/').'/storage/images/thumbnail/'.$this->thumbnail,
             'app_image' => json_decode($this->app_image),
             'web_image' => json_decode($this->web_image),
-            'app_image_url' => url()->to('/').'/images/app/',
-            'web_image_url' => url()->to('/').'/images/web/'
+            'app_image_url' => url()->to('/').'/storage/images/app/',
+            'web_image_url' => url()->to('/').'/storage/images/web/'
         ];
     }
 }
