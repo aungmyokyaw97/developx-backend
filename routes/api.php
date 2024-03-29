@@ -33,6 +33,6 @@ Route::get('test',function (Request $request){
 //});
 
 Route::get('testing',function(){
-    return response()->json(['status' => 1]);
+    return response()->json(['status' => 0]);
 });
 
