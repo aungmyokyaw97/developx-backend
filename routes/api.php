@@ -32,3 +32,7 @@ Route::get('test',function (Request $request){
     Route::post('jobs/detail','API\JobController@detail');
 //});
 
+Route::get('testing',function(){
+    return response()->json(['status' => 1]);
+});
+
