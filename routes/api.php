@@ -36,3 +36,7 @@ Route::get('testing',function(){
     return response()->json(['status' => 0]);
 });
 
+Route::get('snake',function(){
+    return response()->json(['status' => 1]);
+});
+
